@@ -68,14 +68,15 @@ Things you may want to cover:
 - has_one    :ship_info
 
 ### ship_infos
-|Column        |Type     |Options      |
-|--------------|---------|-------------|
-|post_code     |string   |null: false  |
-|area_id       |integer  |null: false  |
-|city          |string   |null: false  |
-|house_number  |string   |null: false  |
-|building      |string   |             |
-|phone_number  |string   |null: false  |
+|Column        |Type       |Options                         |
+|--------------|-----------|--------------------------------|
+|post_code     |string     |null: false                     |
+|area_id       |integer    |null: false                     |
+|city          |string     |null: false                     |
+|house_number  |string     |null: false                     |
+|building      |string     |                                |
+|phone_number  |string     |null: false                     |
+|item_record   |references |null: false, foreign_keys: true |
 
 ### Association 
 - belongs_to :item_record
