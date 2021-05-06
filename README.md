@@ -29,8 +29,11 @@ Things you may want to cover:
 |nickname            |string |null: false               |
 |email               |string |null: false, unique: true |
 |encrypted_password  |string |null: false               |
-|real_name           |string |null: false               |
-|birth_day           |integer|null: false               |
+|last_name           |string |null: false               |
+|first_name          |string |null: false               |
+|last_name_kana      |string |null: false               |
+|first_name_kana     |string |null: false               |
+|birth_day           |date   |null: false               |
 
 ### Association
 - has_many :items
@@ -39,7 +42,7 @@ Things you may want to cover:
 ## itemsテーブル
 |Column      |Type       |Options                        |
 |------------|-----------|-------------------------------|
-|item_name   |string     |null: false                    |
+|name        |string     |null: false                    |
 |describe    |text       |null: false                    |
 |category_id |integer    |null: false                    |
 |status_id   |integer    |null: false                    |
