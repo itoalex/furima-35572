@@ -24,11 +24,13 @@ Things you may want to cover:
 * ...
 
 ## usersテーブル
-|Column    |Type   |Options                   |
-|----------|-------|--------------------------|
-|nickname  |string |null: false               |
-|email     |string |null: false, unique: true |
-|password  |string |null: false               |
+|Column              |Type   |Options                   |
+|--------------------|-------|--------------------------|
+|nickname            |string |null: false               |
+|email               |string |null: false, unique: true |
+|encrypted_password  |string |null: false               |
+|real_name           |string |null: false               |
+|birth_day           |integer|null: false               |
 
 ### Association
 - has_many :items
@@ -38,13 +40,12 @@ Things you may want to cover:
 |Column      |Type       |Options                        |
 |------------|-----------|-------------------------------|
 |item_name   |string     |null: false                    |
-|image       |string     |null: false                    |
 |describe    |text       |null: false                    |
-|category    |string     |null: false                    |
-|status      |string     |null: false                    |
-|ship_fee    |integer    |null: false                    |
-|area        |string     |null: false                    |
-|days        |integer    |null: false                    |
+|category_id |integer    |null: false                    |
+|status_id   |integer    |null: false                    |
+|ship_fee_id |integer    |null: false                    |
+|area_id     |integer    |null: false                    |
+|day_id      |integer    |null: false                    |
 |price       |integer    |null: false                    |
 |user        |references |null: false, foreign_keys: true|
 
@@ -61,19 +62,20 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one    :ship_infos
+- has_one    :ship_info
 
 ### ship_infos
-|Column       |Type     |Options      |
-|-------------|---------|-------------|
-|post_code    |integer  |null: false  |
-|prefecture   |string   |null: false  |
-|city         |string   |null: false  |
-|house_number |integer  |null: false  |
-|phone_number |integer  |null: false  |
+|Column        |Type     |Options      |
+|--------------|---------|-------------|
+|post_code     |string   |null: false  |
+|area_id       |integer  |null: false  |
+|city          |string   |null: false  |
+|house_number  |string   |null: false  |
+|building      |string   |             |
+|phone_number  |string   |null: false  |
 
 ### Association 
-- belongs_to :item_records
+- belongs_to :item_record
 
 
 
