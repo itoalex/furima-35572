@@ -7,9 +7,6 @@ class User < ApplicationRecord
   has_many :items
   has_many :item_records
 
-  # PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-  # validates_format_of :password, with: PASSWORD_REGEX, message: 'は英字と数字の両方を含めて設定してください' 
-
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: 'は半角で英字と数字の両方を含めて設定してください' }
 
   with_options presence: true, format: { with: /\A[ぁ-んァ-ヶー-龥々]+\z/, message: 'は全角文字を使用してください' } do
