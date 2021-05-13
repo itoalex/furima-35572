@@ -28,7 +28,6 @@ RSpec.describe Item, type: :model do
     end
 
     context '商品を出品できない時' do
-
       it 'userが存在しないと登録できないこと' do
         @item.user = nil
         @item.valid?
