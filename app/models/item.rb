@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   belongs_to :day
   belongs_to :ship_fee
   belongs_to :status
-  
+
   with_options numericality: { other_than: 0 } do
     validates :category_id
     validates :area_id
