@@ -26,7 +26,7 @@
     </div>
 
     
-    <% if user_signed_in? %>
+    <% if user_signed_in? && @item.item_record.nil? %>
       <% if current_user.id == @item.user_id %>
         <%= link_to "商品の編集", edit_item_path, method: :get, class: "item-red-btn" %>
         <p class="or-text">or</p>
@@ -34,7 +34,7 @@
 
       <% else %>
     
-        <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
+        <%= link_to "購入画面に進む",  item_item_record_index_path(@item.id), method: :get, class:"item-red-btn"%>
     
       <%end%>
     

@@ -52,8 +52,6 @@ class ItemsController < ApplicationController
   end
 
   def defend_item
-    unless @item.user_id == current_user.id
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless @item.user_id == current_user.id && @item.item_record.nil?
   end
 end
