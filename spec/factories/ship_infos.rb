@@ -1,4 +1,4 @@
 FactoryBot.define do
-  factory :item_record do
+  factory :ship_info do
   end
 end

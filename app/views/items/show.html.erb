@@ -34,7 +34,7 @@
 
       <% else %>
     
-        <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
+        <%= link_to "購入画面に進む",  item_item_record_index_path(@item.id), method: :get, class:"item-red-btn"%>
     
       <%end%>
     
