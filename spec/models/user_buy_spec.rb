@@ -9,6 +9,11 @@ RSpec.describe UserBuy, type: :model do
     it 'すべての値が正しく入力されていれば保存できること' do
       expect(@user_buy).to be_valid
     end
+
+    it '建物名がなくても購入できる' do
+      @user_buy.building = nil
+      expect(@user_buy).to be_valid
+    end
   end
 
   context '商品を購入できない時' do
@@ -37,7 +42,7 @@ RSpec.describe UserBuy, type: :model do
     end
 
     it '都道府県が空だと保存できないこと' do
-      @user_buy.area_id = ''
+      @user_buy.area_id = 0
       @user_buy.valid?
       expect(@user_buy.errors.full_messages).to include("Area can't be blank")
     end
@@ -70,6 +75,24 @@ RSpec.describe UserBuy, type: :model do
       @user_buy.phone_number = '090123456789'
       @user_buy.valid?
       expect(@user_buy.errors.full_messages).to include('Phone number is invalid')
+    end
+
+    it '電話番号は英数混合では登録できないこと' do
+      @user_buy.phone_number = '090abed6789'
+      @user_buy.valid?
+      expect(@user_buy.errors.full_messages).to include('Phone number is invalid')
+    end
+
+    it 'Userが紐づいていないと保存できないこと' do
+      @user_buy.user_id = nil 
+      @user_buy.valid?
+      expect(@user_buy.errors.full_messages).to include("User can't be blank")
+    end
+
+    it 'Itemが紐づいていないと保存できないこと' do
+      @user_buy.item_id = nil 
+      @user_buy.valid?
+      expect(@user_buy.errors.full_messages).to include("Item can't be blank")
     end
   end
 end

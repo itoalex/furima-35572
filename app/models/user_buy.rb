@@ -11,7 +11,9 @@ class UserBuy
   end
   validates :area_id, numericality: { other_than: 0, message: "can't be blank" }
   validates :token, presence: true
-
+  validates :user_id, presence: true
+  validates :item_id, presence: true
+ 
   def save
     item_record = ItemRecord.create!(item_id: item_id, user_id: user_id)
     ShipInfo.create!(post_code: post_code, area_id: area_id, city: city, house_number: house_number, building: building,
