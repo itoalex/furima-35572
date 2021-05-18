@@ -8,11 +8,11 @@ class UserBuy
     validates :city, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'is invalid. Input full-width characters.' }
     validates :house_number
     validates :phone_number, format: { with: /\A\d{10,11}\z/ }
+    validates :user_id
+    validates :item_id
+    validates :token
   end
   validates :area_id, numericality: { other_than: 0, message: "can't be blank" }
-  validates :token, presence: true
-  validates :user_id, presence: true
-  validates :item_id, presence: true
  
   def save
     item_record = ItemRecord.create!(item_id: item_id, user_id: user_id)
